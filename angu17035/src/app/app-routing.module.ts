@@ -5,7 +5,7 @@ import { NotPageComponent } from './pages/not-page/not-page.component';
 import { HomeAdminComponent } from './pages/admin/home-admin/home-admin.component';
 
 const routes: Routes = [
-  {path: '',component: HomePageComponent,},
+  {path: '',component: HomePageComponent, },
   {path: 'admin',component: HomeAdminComponent,},
   {path: '**',component: NotPageComponent,}
 ];
