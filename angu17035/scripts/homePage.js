@@ -87,4 +87,34 @@ function checkFlexGap() {
 }
 checkFlexGap();
 
+// ! slide show
 
+const slides = document.getElementsByClassName('slide');
+let currentSlide = 0;
+
+function showSlide(n) {
+  if (n < 0) {
+    currentSlide = slides.length - 1;
+  } else if (n >= slides.length) {
+    currentSlide = 0;
+  }
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none';
+  }
+
+  slides[currentSlide].style.display = 'block';
+}
+
+function nextSlide() {
+  showSlide(currentSlide + 1);
+}
+
+function previousSlide() {
+  showSlide(currentSlide - 1);
+}
+
+document.getElementById('nextBtn').addEventListener('click', nextSlide);
+document.getElementById('prevBtn').addEventListener('click', previousSlide);
+
+showSlide(currentSlide);
