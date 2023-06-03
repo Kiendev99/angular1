@@ -11,6 +11,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { SigninComponent } from './pages/signin/signin.component';
+import { CProductComponent } from './pages/c-product/c-product.component';
 
 
 
@@ -23,7 +24,8 @@ import { SigninComponent } from './pages/signin/signin.component';
     FooterComponent,
     HeaderComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    CProductComponent
   ],
   imports: [
     IonicModule.forRoot(),
