@@ -9,6 +9,7 @@ import { HomeAdminComponent } from './pages/admin/home-admin/home-admin.componen
 import { NotPageComponent } from './pages/not-page/not-page.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { ProductComponent } from './pages/product/product/product.component';
 
 
 
@@ -19,7 +20,8 @@ import { HeaderComponent } from './shared/header/header.component';
     HomeAdminComponent,
     NotPageComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProductComponent
   ],
   imports: [
     IonicModule.forRoot(),
