@@ -13,8 +13,6 @@ import { AddProductComponent } from './pages/admin/add-product/add-product.compo
 
 
 const routes: Routes = [
-
-  {path: '',component: HomePageComponent, },
   {path: '',component: HomePageComponent,children: [
   ]},
 
