@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -9,16 +8,18 @@ import { HomeAdminComponent } from './pages/admin/home-admin/home-admin.componen
 import { NotPageComponent } from './pages/not-page/not-page.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
-
+import { CartProductComponent } from './pages/cart-product/cart-product.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { CProductComponent } from './pages/c-product/c-product.component';
 import { AddProductComponent } from './pages/admin/add-product/add-product.component';
 import { TrangchuAdminComponent } from './pages/admin/trangchu-admin/trangchu-admin.component';
-import { HttpClientModule } from '@angular/common/http';
+import { SearchComponent } from './pages/search/search.component';
+import { TagsComponent } from './pages/tags/tags.component';
+import { TitleComponent } from './pages/title/title.component';
+import {HttpClientModule} from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
-
-
+import {ToastrModule} from 'ngx-toastr'
 
 
 
@@ -30,13 +31,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     NotPageComponent,
     FooterComponent,
     HeaderComponent,
-
+    CartProductComponent,
     SignupComponent,
     SigninComponent,
     CProductComponent,
     AddProductComponent,
-    TrangchuAdminComponent
-
+    TrangchuAdminComponent,
+    SearchComponent,
+    TagsComponent,
+    TitleComponent,
+    
 
   ],
   imports: [
@@ -44,7 +48,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      newestOnTop:false
+    })
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
