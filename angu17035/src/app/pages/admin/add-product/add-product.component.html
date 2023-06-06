@@ -9,43 +9,220 @@
           </div>
       </div>
 
-      <form action="">
-        <label for="name">name</label>
-        <input type="text">
-        <label for="name">price</label>
-        <input type="text">
-        <label for="name">mô tả</label>
-        <input type="text">
-        <label for="name">đánh giá</label>
-        <input type="text">
-        <label for="name">màu lựa chọn</label>
-        <input type="text">
-        <label for="name">thiết kế</label>
-        <input type="text">
-        <label for="name">mô tả</label>
-        <input type="text">
-        <button>submit</button>
-      </form>
-     <!--!  -->
-<div class="container">
-
-  <h1 class="text-danger bg-pink-400">nam đẹp trai</h1>
-  <div class="alert alert-success" role="alert">đã thêm thành công </div>
-  
-  <button type="submit" class="btn btn-primary mr-3">thêm sản phẩm</button>
-
-<!-- / nút không có background -->
-<button type="submit" class="btn btn-outline-warning">cảnh báo </button>
-</div>
-<!-- ! -->
-      <div class="flex flex-row flex-wrap flex-grow mt-2">
-      <div class="w-full md:w-1/2 xl:w-1/3 p-6">
-          <!--Advert Card-->
-          <div class="bg-white border-transparent rounded-lg shadow-xl">
-
+      <div class="table-responsive p-3">
+        <table class="table table-hover">
+          <thead class="text-center">
+            <tr>
+              <th scope="col" class="md:w-screen">STT</th>
+              <th scope="col" class="md:w-screen">Tên sản phẩm</th>
+              <th scope="col" class="md:w-screen">Giá</th>
+              <th scope="col" class="md:w-screen md:table-cell hidden">Giá gốc</th>
+              <th scope="col" class="md:w-screen">Danh mục</th>
+              <th scope="col" class="md:w-screen md:hidden table-cell">Chi tiết</th>
+              <th scope="col" class="md:w-screen md:table-cell hidden">
+                Mô tả ngắn
+              </th>
+              <th scope="col" class="md:w-screen md:table-cell hidden">Mô tả</th>
+              <th scope="col" class="md:w-screen md:table-cell hidden">
+                Thông số kỹ thuật
+              </th>
+              <th scope="col" class="md:w-screen md:table-cell hidden">Hình ảnh</th>
+              <th scope="col" class="md:w-screen">Thao tác</th>
+            </tr>
+          </thead>
+          <tbody >  
+            <!-- *ngFor="
+              let item of products | paginate : { itemsPerPage: 3, currentPage: p };
+              index as i
+            " -->
+            <tr class="text-center">
+              <th scope="row">1</th>
+              <td>
+                <span>Apple iPad mini (6th Gen) Wi-Fi, 2021</span>
+              </td>
+              <td>
+                <span>12.650.000đ</span>
+              </td>
+              <td class="md:table-cell hidden">
+                <span>14.990.000đ</span>
+              </td>
+              <td>
+                <span>Apple</span>
+              </td>
+              <td class="md:hidden table-cell">
+                <button type="submit" data-bs-toggle="modal" data-bs-target="#detail_prod">
+                  Xem
+                </button>
+              </td>
+              <td class="md:table-cell hidden">
+                <button type="submit" data-bs-toggle="modal" data-bs-target="#short_description">
+                  <span class="hover:text-blue-500">Xem</span>
+                </button>
+              </td>
+              <td class="md:table-cell hidden">
+                <button type="submit" data-bs-toggle="modal" data-bs-target="#description">
+                  <span class="hover:text-blue-500">Xem</span>
+                </button>
+              </td>
+    
+              <td class="md:table-cell hidden">
+                <button type="submit" data-bs-toggle="modal" data-bs-target="#specifications">
+                  <span class="hover:text-blue-500">Xem</span>
+                </button>
+              </td>
+              <td class="md:table-cell hidden">
+                <img src="https://thuthuatnhanh.com/wp-content/uploads/2023/03/hinh-anh-cuc-tinh-y.jpg" alt="product"
+                  class="w-[100px] h-[100px]" />
+              </td>
+              <td>
+                <div class="flex gap-1 justify-center">
+                  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProduct">
+                    <span>Sửa</span>
+                  </button>
+                  <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete_prod">
+                    <span>Xóa</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
+      <div class="flex justify-end mr-5 mt-3">
+        <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+      </div>
+    </div>
+    
+    <!-- The Modal Short description -->
+    <div class="modal" id="short_description">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">Mô tả ngắn</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- The Modal Description -->
+    <div class="modal" id="description">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">Mô tả dài</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- The Modal Specifications -->
+    <div class="modal" id="specifications">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">Thông số kỹ thuật</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- The Modal Edit Product -->
+    <div class="modal" id="editProduct">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Chỉnh sửa thông tin sản phẩm</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
-          <!--/Advert Card-->
+    
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form>Form thông tin sản phẩm</form>
+          </div>
+    
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#alert">
+              <span>Lưu</span>
+            </button>
+          </div>
+        </div>
       </div>
+    </div>
+    
+    <!-- The Modal Edit Product Success -->
+    <div class="modal" id="alert">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+    
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="alert alert-success">
+              <span>Chỉnh sửa thông tin sản phẩm thành công!</span>
+            </div>
+          </div>
+        </div>
       </div>
-  </div>
-</section>
+    </div>
+    
+    <!-- The Modal Delete Product -->
+    <div class="modal" id="delete_prod">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Xóa sản phẩm</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+    
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form>Chi tiết sản phẩm muốn xóa</form>
+          </div>
+    
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#delete_success">
+              <span>Đồng ý</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- The Modal Delete Product Success -->
+    <div class="modal" id="delete_success">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+    
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="alert alert-success">
+              <span>Xóa sản phẩm thành công!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- The Modal Detail Product -->
+    <div class="modal" id="detail_prod">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Tên sản phẩm</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+    
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form>Chi tiết sản phẩm</form>
+          </div>
+        </div>
+      </div>
+    </div>
