@@ -15,6 +15,8 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { CProductComponent } from './pages/c-product/c-product.component';
 import { AddProductComponent } from './pages/admin/add-product/add-product.component';
 import { TrangchuAdminComponent } from './pages/admin/trangchu-admin/trangchu-admin.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -40,7 +42,9 @@ import { TrangchuAdminComponent } from './pages/admin/trangchu-admin/trangchu-ad
   imports: [
     IonicModule.forRoot(),
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
