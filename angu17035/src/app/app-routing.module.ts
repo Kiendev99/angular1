@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NotPageComponent } from './pages/not-page/not-page.component';
 import { HomeAdminComponent } from './pages/admin/home-admin/home-admin.component';
-
+import { CartProductComponent } from './pages/cart-product/cart-product.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { CProductComponent } from './pages/c-product/c-product.component';
@@ -22,9 +22,12 @@ const routes: Routes = [
     {path: 'home',component: TrangchuAdminComponent},
     {path: 'add',component: AddProductComponent},
   ]},
+  {path: 'cart',component: CartProductComponent,},
+  {path:'search/:searchTerm', component:HomePageComponent},
+  {path:'tag/:tag', component:HomePageComponent},
   {path: 'signup',component: SignupComponent,},
   {path: 'signin',component: SigninComponent,},
-  {path: 'chitiet/product',component: CProductComponent,},
+  {path: 'food/:id',component: CProductComponent,},
   {path: '**',component: NotPageComponent,},
   
 ];

@@ -1,35 +1,20 @@
 <app-header/>
-      <!-- Product section-->
+        <!-- Product section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
                     <div class="col-md-6">
-                        <img class="card-img-top mb-5 mb-md-0" [src]="food.imageUrl" alt="food.name" /></div>
-                    <div class="col-md-6">
-                        <div class="small mb-1">
-                            <div class="cook-time">
-                                <span>Time to cook about <strong>{{food.cookTime}}</strong> minutes</span>
-                            </div>
-                        </div>
-                        <h1 class="display-5 fw-bolder">{{food.name}}</h1>
-                        <div class="origins">
-                            <span *ngFor = "let origin of food.origins">
-                                {{origin}}
-                            </span>
-                        </div>
-                        <div class="tags">
-                            <a *ngFor="let tag of food.tags" routerLink="/tag/{{tag}}">
-                                {{tag}}
-                            </a>
-                        </div>
+                        <div class="small mb-1">SKU: BST-498</div>
+                        <h1 class="display-5 fw-bolder">Shop item template</h1>
                         <div class="fs-5 mb-5">
-                            <span class="text-decoration-line-through" >{{food.realPrice | currency}}</span> - 
-                            <span>{{food.price | currency}}</span>
+                            <span class="text-decoration-line-through">$45.00</span>
+                            <span>$40.00</span>
                         </div>
-                        <p class="lead"> {{food.des}}</p>
+                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
                         <div class="d-flex">
                             <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                            <button (click) = "addToCart()" class="btn btn-outline-dark flex-shrink-0" type="button">
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button">
                                 <i class="bi-cart-fill me-1"></i>
                                 Add to cart
                             </button>
@@ -39,71 +24,17 @@
             </div>
         </section>
 
-        <!-- Comment -->
+<!-- ! code đoạn này coment -->
 
-        <section class="py-5 bg-light">
-            <div class="container px-4 px-lg-5 mt-5">
-                <div class="bg-gray-100">
-                    <div class="container mx-auto px-4 py-8">
-                      <h1 class="text-2xl font-bold mb-4">Comment Reviews</h1>
-                  
-                      <!-- Comment Form -->
-                      <form id="commentForm" class="mb-8">
-                        <div class="mb-4">
-                          <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name:</label>
-                          <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                        </div>
-                        <div class="mb-4">
-                          <label class="block text-gray-700 text-sm font-bold mb-2" for="comment">Comment:</label>
-                          <textarea id="comment" name="comment" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
-                        </div>
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
-                      </form>
-                  
-                      <!-- Comment Section -->
-                      <div id="commentSection">
-                        <!-- Comments will be dynamically added here -->
-                      </div>
-                    </div>
-            </div>
-        </div>
+<div class="comment w-[full] bg-[red] m-auto p-auto text-center h-[200px]">
+    <div class="flex">
+        <input type="text" class="bg-[black] w-[200px] h-[100px]">
+        <button class="bg-[black] w-[200px] h-[100px]">bình luận</button>
+    </div>
+    
+</div>
 
-        <!-- <script>
-            // Function to handle form submission
-            function submitComment(event) {
-              event.preventDefault();
-        
-              const nameInput = document.getElementById('name');
-              const commentInput = document.getElementById('comment');
-        
-              const name = nameInput.value;
-              const comment = commentInput.value;
-        
-              // Clear input fields
-              nameInput.value = '';
-              commentInput.value = '';
-        
-              // Create a new comment element
-              const commentElement = document.createElement('div');
-              commentElement.classList.add('comment');
-              commentElement.innerHTML = `
-                <h4 class="font-bold">${name}</h4>
-                <p>${comment}</p>
-              `;
-        
-              // Append the new comment to the comment section
-              const commentSection = document.getElementById('commentSection');
-              commentSection.appendChild(commentElement);
-            }
-        
-            // Attach form submission event listener
-            const commentForm = document.getElementById('commentForm');
-            commentForm.addEventListener('submit', submitComment);
-          </script> -->
-
-          <!-- Comment -->
-            
-        </section>
+<!-- ! end -->
         <!-- Related items section-->
         <section class="py-5 bg-light">
             <div class="container px-4 px-lg-5 mt-5">
@@ -211,4 +142,5 @@
             </div>
         </section>
         <!-- Footer-->
-<!-- <app-footer/> -->
+   
+        <app-footer/>
