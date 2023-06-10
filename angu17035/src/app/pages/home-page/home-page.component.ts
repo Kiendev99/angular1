@@ -17,26 +17,24 @@ import { Observable } from 'rxjs';
 
 
 export class HomePageComponent implements OnInit {
- foods:Food[] =[];
- constructor (private foodService: FoodService, activatedRoute:ActivatedRoute, private cartService: CartService, private router: Router){
-  let foodsObservable:Observable<Food[]>
-  activatedRoute.params.subscribe((params)=>{
-    if(params.searchTerm)
-    foodsObservable = this.foodService.getAllFoodsBySearchTerm(params.searchTerm);
-    else if (params.tag)
-    foodsObservable = this.foodService.getAllFoodsByTag(params.tag)
-    else
-    foodsObservable = foodService.getAll();
-    
-    foodsObservable.subscribe((serverFoods)=>{
-      this.foods = serverFoods;
-      
+  foods: Food[] = [];
+  constructor(private foodService: FoodService, activatedRoute: ActivatedRoute) {
+    let foodsObservalbe:Observable<Food[]>;
+    activatedRoute.params.subscribe((params) => {
+      if (params.searchTerm)
+        foodsObservalbe = this.foodService.getAllFoodsBySearchTerm(params.searchTerm);
+      else if (params.tag)
+        foodsObservalbe = this.foodService.getAllFoodsByTag(params.tag);
+      else
+        foodsObservalbe = foodService.getAll();
+
+        foodsObservalbe.subscribe((serverFoods) => {
+          this.foods = serverFoods;
+        })
     })
-  })
-  
- }
- ngOnInit(): void {
-   
- }
+  }
+
+  ngOnInit(): void {
+  }
 
 }

@@ -10,21 +10,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./c-product.component.css']
 })
 export class CProductComponent implements OnInit {
-  food?: Food;
-  constructor (activateRoute: ActivatedRoute, foodService: FoodService, private cartService: CartService, private router: Router){
-    activateRoute.params.subscribe((params)=>{
+  food!: Food;
+  constructor(activatedRoute:ActivatedRoute, foodService:FoodService,
+    private cartService:CartService, private router: Router) {
+    activatedRoute.params.subscribe((params) => {
       if(params.id)
       foodService.getFoodById(params.id).subscribe(serverFood => {
-        serverFood;
-      })
+        this.food = serverFood;
+      });
     })
-  }
+   }
+
   ngOnInit(): void {
-    
-  }
-  addToCart(){
-    this.cartService.addToCart(this.food)
-    this.router.navigateByUrl('/cart');
   }
 
+  addToCart(){
+    this.cartService.addToCart(this.food);
+    this.router.navigateByUrl('/cart');
+  }
 }

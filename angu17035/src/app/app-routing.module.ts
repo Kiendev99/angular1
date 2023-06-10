@@ -11,7 +11,6 @@ import { TrangchuAdminComponent } from './pages/admin/trangchu-admin/trangchu-ad
 import { AddProductComponent } from './pages/admin/add-product/add-product.component';
 
 
-
 const routes: Routes = [
   {path: '',component: HomePageComponent,children: [
   ]},
@@ -29,11 +28,13 @@ const routes: Routes = [
   {path: 'signin',component: SigninComponent,},
   {path: 'food/:id',component: CProductComponent,},
   {path: '**',component: NotPageComponent,},
-  
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+
   exports: [RouterModule]
-})
+},
+)
 export class AppRoutingModule { }

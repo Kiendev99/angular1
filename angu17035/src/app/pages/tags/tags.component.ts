@@ -7,13 +7,14 @@ import { Tag } from 'src/app/shared/models/tags';
   styleUrls: ['./tags.component.css']
 })
 export class TagsComponent implements OnInit {
-tags?: Tag[];
-constructor(foodService: FoodService){
-  foodService.getAllTags().subscribe(serverTags=>{
-    this.tags = serverTags;
-  })
-}
-ngOnInit(): void {
-  
-}
+  tags?:Tag[];
+  constructor(foodService:FoodService) {
+    foodService.getAllTags().subscribe(serverTags => {
+      this.tags = serverTags;
+    });
+   }
+
+  ngOnInit(): void {
+  }
+
 }
