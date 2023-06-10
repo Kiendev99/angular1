@@ -16,11 +16,19 @@ constructor(private userService: UserService,private router: Router){}
       const user = JSON.parse(userData);
       this.userName = user.user.name;
       this.role = user.user.role;
+
+      if (this.role !== 'admin') {
+
+        this.router.navigate(['**']);
+      }
+    } else {
+
+      this.router.navigate(['/signin']);
     }
   }
 
   logout() {
     localStorage.removeItem('user');
-    this.router.navigate(['signin']);
+    this.router.navigate(['/signin']);
   }
 }
