@@ -18,6 +18,7 @@ import { SearchComponent } from './pages/search/search.component';
 import { TagsComponent } from './pages/tags/tags.component';
 import { TitleComponent } from './pages/title/title.component';
 import {HttpClientModule} from '@angular/common/http'
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -47,7 +48,7 @@ import {HttpClientModule} from '@angular/common/http'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
