@@ -20,6 +20,7 @@ import { TitleComponent } from './pages/title/title.component';
 import {HttpClientModule} from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserHomeComponent } from './pages/admin/user-home/user-home.component';
+import { EditUserComponent } from './pages/admin/edit-user/edit-user.component';
 
 
 
@@ -42,6 +43,7 @@ import { UserHomeComponent } from './pages/admin/user-home/user-home.component';
     TagsComponent,
     TitleComponent,
     UserHomeComponent,
+    EditUserComponent,
     
 
   ],

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {UserService} from '../../../services/user.service'
-
+import {Router} from '@angular/router'
 
 
 @Component({
@@ -10,26 +10,17 @@ import {UserService} from '../../../services/user.service'
 })
 export class UserHomeComponent {
   users: any[] 
-  constructor(private userr: UserService) {}
+  constructor(private userr: UserService,private route: Router) {}
   ngOnInit() {
-    this.userr.users().subscribe((data) => {
+    this.userr.users().subscribe((data:any) => {
        this.users = data.user;
       console.log(this.users);
     });
   }
 
-  // constructor(private userr: UserService) {
-  //   this.userr.users().subscribe(data => {
-  //     this.user = data
-  //     console.log(this.user)
-  //     console.log(this.user[0].name); // Truy cập thuộc tính 'name'
-  //     console.log(this.user[0].email);
-  //   })
-  // }
-
   userDelete(id: string) {
     this.userr.usersDelete(id).subscribe(() => {
       console.log("1")
-      // this.userr = this.userr.filter(user => user.id !== id)
+    this.route.navigate([""])      
     })}
 }
