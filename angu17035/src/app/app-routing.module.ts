@@ -10,6 +10,7 @@ import { CProductComponent } from './pages/c-product/c-product.component';
 import { TrangchuAdminComponent } from './pages/admin/trangchu-admin/trangchu-admin.component';
 import { AddProductComponent } from './pages/admin/add-product/add-product.component';
 import { UserHomeComponent } from './pages/admin/user-home/user-home.component';
+import { EditUserComponent } from './pages/admin/edit-user/edit-user.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
     {path: 'home',component: TrangchuAdminComponent},
     {path: 'add',component: AddProductComponent},
     {path: 'user',component: UserHomeComponent,},
+    {path: 'user/:id',component: EditUserComponent,},
   ]},
   {path: 'cart',component: CartProductComponent,},
   {path:'search/:searchTerm', component:HomePageComponent},
