@@ -6,10 +6,10 @@ import asyncHandler from 'express-async-handler';
 const router = express.Router()
 
 router.get("/foods",getAll)
-router.post("/foods",checkPermission,create)
+router.post("/foods",create)
 router.get("/api/foods/:id",get)
 router.put("/foods/:id",checkPermission,update)
-router.delete("/foods/:id",checkPermission,remove)
+router.delete("/foods/:id",remove)
 router.get("/search/:searchTerm", asyncHandler(
     async (req, res) => {
       const searchRegex = new RegExp(req.params.searchTerm, 'i');

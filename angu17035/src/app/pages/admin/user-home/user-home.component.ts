@@ -12,7 +12,7 @@ export class UserHomeComponent {
   users: any[] 
   constructor(private userr: UserService) {}
   ngOnInit() {
-    this.userr.users().subscribe((data) => {
+    this.userr.users().subscribe((data:any) => {
        this.users = data.user;
       console.log(this.users);
     });

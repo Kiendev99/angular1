@@ -15,10 +15,8 @@ export class CProductComponent implements OnInit {
   name: string = '';
   content: string = '';
   food!: Food;
-  constructor(private http: HttpClient,activatedRoute:ActivatedRoute, foodService:FoodService,
-
-  food: any=[];
-  constructor(activatedRoute:ActivatedRoute, private foodService:FoodService,
+  // food: any=[];
+  constructor(private http: HttpClient,activatedRoute:ActivatedRoute, private foodService:FoodService,
     private cartService:CartService, private router: Router) {
     activatedRoute.params.subscribe((params) => {
       if(params.id)
@@ -49,14 +47,12 @@ export class CProductComponent implements OnInit {
         }
       );
     }
-
-  ngOnInit(): void {
-
-
   }
+
 
   addToCart(){
     this.cartService.addToCart(this.food);
     this.router.navigateByUrl('/cart');
   }
+
 }

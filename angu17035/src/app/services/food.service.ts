@@ -15,6 +15,10 @@ export class FoodService {
 
   }
 
+  foodRemove(id: string): Observable<Food> {
+    return this.http.delete<Food>(`http://localhost:8080/api/foods/${id}`);
+  }
+
   getAll(): Observable<Food[]> {
     return this.http.get<Food[]>(FOODS_URL);
   }

@@ -35,16 +35,16 @@
               let item of products | paginate : { itemsPerPage: 3, currentPage: p };
               index as i
             " -->
-            <tr class="text-center">
-              <th scope="row">1</th>
+            <tr class="text-center" *ngFor="let food of foods,index as i ">
+              <th scope="row">{{i + 1}}</th>
               <td>
-                <span>Apple iPad mini (6th Gen) Wi-Fi, 2021</span>
+                <span>{{food.name}}</span>
               </td>
               <td>
-                <span>12.650.000đ</span>
+                <span>{{food.price}}</span>
               </td>
               <td class="md:table-cell hidden">
-                <span>14.990.000đ</span>
+                <span>{{food.des}}</span>
               </td>
               <td>
                 <span>Apple</span>
@@ -80,7 +80,7 @@
                     <span>Sửa</span>
                   </button>
                   <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete_prod">
-                    <span>Xóa</span>
+                    <span (click) = 'foodRemove(food._id)'>Xóa</span>
                   </button>
                 </div>
               </td>

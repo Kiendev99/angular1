@@ -30,6 +30,16 @@ export class UserService {
     return this.http.delete<any>(`${this.API_URL}/users/${id}`);
   }
 
+  user(id:string): Observable<any> {
+    return this.http.get<any>(`${this.API_URL}/users/${id}`);
+  }
+
+  updateUser(data: any): Observable<any> {
+    const url = `${this.API_URL}/users/${data.id}`;
+    return this.http.put(url, data);
+  }
+  
+
   logout() {
     localStorage.removeItem('user');
   }

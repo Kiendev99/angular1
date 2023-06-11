@@ -80,7 +80,7 @@ export const get = async (req, res) => {
 
 export const remove = async (req, res) => {
   try {
-    const food = await Food.findOneAndDelete({_id: req.body.id});
+    const food = await Food.findOneAndDelete({_id: req.params.id});
     return res.status(200).json({
       message: "xóa thành công",
       food});
