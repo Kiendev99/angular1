@@ -3,6 +3,57 @@ import { signinSchema,signupSchema } from '../schemas/user';
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
 
+export const user = async (req, res) => {
+  try {
+    const user = await User.findById(req.body.id);
+    return res.status(200).json({
+      user});
+  } catch (error) {
+    return res.status(400).json({
+      message: error.message
+    })
+  }
+}
+
+export const updateUser = async (req, res) => {
+  try {
+    const user = await User.findOneAndUpdate({_id: req.body.id});
+    return res.status(200).json({
+      message: "xóa thành công",
+      user});
+  } catch (error) {
+    return res.status(400).json({
+      message: error.message
+    })
+  }
+}
+
+export const removeUser = async (req, res) => {
+  try {
+    const user = await User.findOneAndDelete({_id: req.body.id});
+    return res.status(200).json({
+      message: "xóa thành công",
+      user});
+  } catch (error) {
+    return res.status(400).json({
+      message: error.message
+    })
+  }
+}
+
+export const users = async (req, res) => {
+  try {
+    const user = await User.find()
+    return res.status(201).json({
+      user
+    })
+  } catch (error) {
+    return res.status(400).json({
+      message: error.message
+    })
+  }
+}
+
 export const signup = async (req, res) => {
 
   const {error} = signupSchema.validate(req.body,{abortEarly: false})

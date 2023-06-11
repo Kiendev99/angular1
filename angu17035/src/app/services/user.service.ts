@@ -22,6 +22,14 @@ export class UserService {
     return JSON.parse(localStorage.getItem('user')!) || null;
   }
 
+  users(): Observable<any[]>{
+    return this.http.get<any[]>(`${this.API_URL}/users`);
+  }
+
+  usersDelete(id: string): Observable<any>{
+    return this.http.delete<any>(`${this.API_URL}/users/${id}`);
+  }
+
   logout() {
     localStorage.removeItem('user');
   }
