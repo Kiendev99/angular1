@@ -19,7 +19,7 @@ import { TagsComponent } from './pages/tags/tags.component';
 import { TitleComponent } from './pages/title/title.component';
 import {HttpClientModule} from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -41,6 +41,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     TagsComponent,
     TitleComponent,
     
+    
 
   ],
   imports: [
@@ -48,7 +49,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
