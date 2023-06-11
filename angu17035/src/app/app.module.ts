@@ -19,6 +19,9 @@ import { TagsComponent } from './pages/tags/tags.component';
 import { TitleComponent } from './pages/title/title.component';
 import {HttpClientModule} from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { FormsModule } from '@angular/forms';
+
 import { UserHomeComponent } from './pages/admin/user-home/user-home.component';
 
 
@@ -43,6 +46,7 @@ import { UserHomeComponent } from './pages/admin/user-home/user-home.component';
     TitleComponent,
     UserHomeComponent,
     
+    
 
   ],
   imports: [
@@ -50,7 +54,9 @@ import { UserHomeComponent } from './pages/admin/user-home/user-home.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -43,67 +43,37 @@
 
         <section class="py-5 bg-light">
             <div class="container px-4 px-lg-5 mt-5">
-                <div class="bg-gray-100">
-                    <div class="container mx-auto px-4 py-8">
-                      <h1 class="text-2xl font-bold mb-4">Comment Reviews</h1>
-
-                      <!-- Comment Form -->
-                      <form id="commentForm" class="mb-8">
-                        <div class="mb-4">
-                          <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name:</label>
-                          <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                        </div>
-                        <div class="mb-4">
-                          <label class="block text-gray-700 text-sm font-bold mb-2" for="comment">Comment:</label>
-                          <textarea id="comment" name="comment" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
-                        </div>
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
-                      </form>
-
-                      <!-- Comment Section -->
-                      <div id="commentSection">
-                        <!-- Comments will be dynamically added here -->
-                      </div>
+              <div class="bg-gray-100">
+                <div class="container mx-auto px-4 py-8">
+                  <h1 class="text-2xl font-bold mb-4">Comment Reviews</h1>
+          
+                  <!-- Comment Form -->
+                  <form (ngSubmit)="submitComment()" class="mb-8">
+                    <div class="mb-4">
+                      <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name:</label>
+                      <input type="text" id="name" name="name" [(ngModel)]="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     </div>
+                    <div class="mb-4">
+                      <label class="block text-gray-700 text-sm font-bold mb-2" for="content">content:</label>
+                      <textarea id="content" name="content" rows="4" [(ngModel)]="content" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                    </div>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
+                  </form>
+          
+                  <!-- Comment Section -->
+                  <div id="commentSection">
+                    <div *ngFor="let comment of comments" class="comment">
+                      <h4 class="font-bold">{{ comment.name }}</h4>
+                      <p>{{ comment.content }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-
-        <!-- <script>
-            // Function to handle form submission
-            function submitComment(event) {
-              event.preventDefault();
-
-              const nameInput = document.getElementById('name');
-              const commentInput = document.getElementById('comment');
-
-              const name = nameInput.value;
-              const comment = commentInput.value;
-
-              // Clear input fields
-              nameInput.value = '';
-              commentInput.value = '';
-
-              // Create a new comment element
-              const commentElement = document.createElement('div');
-              commentElement.classList.add('comment');
-              commentElement.innerHTML = `
-                <h4 class="font-bold">${name}</h4>
-                <p>${comment}</p>
-              `;
-
-              // Append the new comment to the comment section
-              const commentSection = document.getElementById('commentSection');
-              commentSection.appendChild(commentElement);
-            }
-
-            // Attach form submission event listener
-            const commentForm = document.getElementById('commentForm');
-            commentForm.addEventListener('submit', submitComment);
-          </script> -->
-
-          <!-- Comment -->
-
-        </section>
+          </section>
+          
+          
+          
         <!-- Related items section-->
         <section class="py-5 bg-light">
             <div class="container px-4 px-lg-5 mt-5">

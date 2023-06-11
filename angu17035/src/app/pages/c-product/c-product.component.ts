@@ -4,12 +4,19 @@ import { CartService } from 'src/app/services/cart.service';
 import { FoodService } from 'src/app/services/food.service';
 import { Food } from 'src/app/shared/models/food';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-c-product',
   templateUrl: './c-product.component.html',
   styleUrls: ['./c-product.component.css']
 })
 export class CProductComponent implements OnInit {
+  comments: { name: string, content: string }[] = [];
+  name: string = '';
+  content: string = '';
+  food!: Food;
+  constructor(private http: HttpClient,activatedRoute:ActivatedRoute, foodService:FoodService,
+
   food: any=[];
   constructor(activatedRoute:ActivatedRoute, private foodService:FoodService,
     private cartService:CartService, private router: Router) {
@@ -20,8 +27,31 @@ export class CProductComponent implements OnInit {
       });
     })
    }
+   ngOnInit(): void {
+   
+  }
+
+  submitComment(): void {
+    if (this.name && this.content) {
+      const newComment = { name: this.name, content: this.content };
+      this.comments.push(newComment);
+      this.name = '';
+      this.content = '';
+
+
+      // Gửi bình luận đến backend
+      this.http.post('http://localhost:4000/api/comment', newComment).subscribe(
+        (response) => {
+          console.log('Bình luận đã được gửi thành công!');
+        },
+        (error) => {
+          console.log('Đã xảy ra lỗi khi gửi bình luận:', error);
+        }
+      );
+    }
 
   ngOnInit(): void {
+
 
   }
 
