@@ -2,7 +2,7 @@ import express from 'express';
 import {get,getAll,create,update,remove} from '../controllers/food'
 import { checkPermission } from '../middlewares/checkPermission';
 import {foods, Tags} from "../../db.json"
-
+import asyncHandler from 'express-async-handler';
 const router = express.Router()
 
 router.get("/foods",getAll)
