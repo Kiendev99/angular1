@@ -3,7 +3,7 @@ import { Food } from '../shared/models/food';
 import { foods, Tags } from 'src/data';
 import { Tag } from '../shared/models/tags';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/internal/Observable';
+import { Observable } from 'rxjs';
 import { FOODS_BY_ID_URL, FOODS_BY_SEARCH_URL, FOODS_TAGS_URL, FOODS_URL, FOODS_BY_TAG_URL } from '../shared/constants/url';
 
 @Injectable({
@@ -11,7 +11,9 @@ import { FOODS_BY_ID_URL, FOODS_BY_SEARCH_URL, FOODS_TAGS_URL, FOODS_URL, FOODS_
 })
 export class FoodService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {
+
+  }
 
   getAll(): Observable<Food[]> {
     return this.http.get<Food[]>(FOODS_URL);

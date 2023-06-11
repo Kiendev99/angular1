@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./c-product.component.css']
 })
 export class CProductComponent implements OnInit {
-  food!: Food;
-  constructor(activatedRoute:ActivatedRoute, foodService:FoodService,
+  food: any=[];
+  constructor(activatedRoute:ActivatedRoute, private foodService:FoodService,
     private cartService:CartService, private router: Router) {
     activatedRoute.params.subscribe((params) => {
       if(params.id)
@@ -22,6 +22,7 @@ export class CProductComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
   }
 
   addToCart(){

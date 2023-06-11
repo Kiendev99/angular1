@@ -1,10 +1,10 @@
-import Book from '../models/book';
-import { bookSchema } from '../schemas/book';
+import Food from '../models/food';
+import { foodSchema } from '../schemas/food';
 import paginate from 'mongoose-paginate-v2'
 
 export const create = async (req, res) => {
 
-  const {error} = bookSchema.validate(req.body,{abortEarly: false})
+  const {error} = foodSchema.validate(req.body,{abortEarly: false})
   if(error) {
     return res.status(400).json({
       message: error.details.map(err => err.message)
@@ -12,10 +12,10 @@ export const create = async (req, res) => {
   }
 
   try {
-    const book = await Book.create(req.body);
+    const food = await Food.create(req.body);
     return res.status(200).json({
-      message: 'Book created successfully',
-      book});
+      message: 'Food created successfully',
+      food});
   } catch (error) {
     return res.status(400).json({
       message: error.message
@@ -24,7 +24,7 @@ export const create = async (req, res) => {
 }
 
 export const update = async (req, res) => {
-  const {error} = bookSchema.validate(req.body,{abortEarly: false})
+  const {error} =foodSchema.validate(req.body,{abortEarly: false})
   if(error) {
     return res.status(400).json({
       message: error.details.map(err => err.message)
@@ -32,10 +32,10 @@ export const update = async (req, res) => {
   }
 
   try {
-    const book = await Book.findOneAndUpdate(req.body.id,req.body,{new:true});
+    const food = await Food.findOneAndUpdate(req.body.id,req.body,{new:true});
     return res.status(200).json({
-      message: 'Book update successfully',
-      book});
+      message: 'food update successfully',
+      food});
   } catch (error) {
     return res.status(400).json({
       message: error.message
@@ -56,9 +56,9 @@ export const getAll = async (req, res) => {
   }
 
   try {
-    const book = await Book.paginate({},options);
+    const food = await Food.paginate({},options);
     return res.status(200).json({
-      book});
+      food});
   } catch (error) {
     return res.status(400).json({
       message: error.message
@@ -68,9 +68,9 @@ export const getAll = async (req, res) => {
 
 export const get = async (req, res) => {
   try {
-    const book = await Book.findById(req.body.id);
+    const food = await Food.findById(req.body.id);
     return res.status(200).json({
-      book});
+      food});
   } catch (error) {
     return res.status(400).json({
       message: error.message
@@ -80,10 +80,10 @@ export const get = async (req, res) => {
 
 export const remove = async (req, res) => {
   try {
-    const book = await Book.findOneAndDelete({_id: req.body.id});
+    const food = await Food.findOneAndDelete({_id: req.body.id});
     return res.status(200).json({
       message: "xóa thành công",
-      book});
+      food});
   } catch (error) {
     return res.status(400).json({
       message: error.message
