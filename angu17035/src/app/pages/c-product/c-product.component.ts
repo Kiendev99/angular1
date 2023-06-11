@@ -16,6 +16,9 @@ export class CProductComponent implements OnInit {
   content: string = '';
   food!: Food;
   constructor(private http: HttpClient,activatedRoute:ActivatedRoute, foodService:FoodService,
+
+  food: any=[];
+  constructor(activatedRoute:ActivatedRoute, private foodService:FoodService,
     private cartService:CartService, private router: Router) {
     activatedRoute.params.subscribe((params) => {
       if(params.id)
@@ -35,6 +38,7 @@ export class CProductComponent implements OnInit {
       this.name = '';
       this.content = '';
 
+
       // Gửi bình luận đến backend
       this.http.post('http://localhost:4000/api/comment', newComment).subscribe(
         (response) => {
@@ -45,6 +49,10 @@ export class CProductComponent implements OnInit {
         }
       );
     }
+
+  ngOnInit(): void {
+
+
   }
 
   addToCart(){

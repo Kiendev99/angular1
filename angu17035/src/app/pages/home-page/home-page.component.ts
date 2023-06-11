@@ -17,7 +17,7 @@ import { Observable } from 'rxjs';
 
 
 export class HomePageComponent implements OnInit {
-  foods: Food[] = [];
+  foods: any=[];
   constructor(private foodService: FoodService, activatedRoute: ActivatedRoute) {
     let foodsObservalbe:Observable<Food[]>;
     activatedRoute.params.subscribe((params) => {
@@ -35,6 +35,11 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.foodService.getAll().subscribe((data:any)=>{
+      this.foods = data.food.docs;
+      console.log(data.food.docs);
+
+    })
   }
 
 }

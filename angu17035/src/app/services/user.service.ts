@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  API_URL: string = 'http://localhost:4000/api';
+  API_URL: string = 'http://localhost:8080/api';
   constructor(private http: HttpClient) {
   }
 
@@ -20,6 +20,14 @@ export class UserService {
   }
   isAuthenticated() {
     return JSON.parse(localStorage.getItem('user')!) || null;
+  }
+
+  users(): Observable<any[]>{
+    return this.http.get<any[]>(`${this.API_URL}/users`);
+  }
+
+  usersDelete(id: string): Observable<any>{
+    return this.http.delete<any>(`${this.API_URL}/users/${id}`);
   }
 
   logout() {
