@@ -19,6 +19,7 @@ import { TagsComponent } from './pages/tags/tags.component';
 import { TitleComponent } from './pages/title/title.component';
 import {HttpClientModule} from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserHomeComponent } from './pages/admin/user-home/user-home.component';
 
 
 
@@ -40,6 +41,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SearchComponent,
     TagsComponent,
     TitleComponent,
+    UserHomeComponent,
     
 
   ],
