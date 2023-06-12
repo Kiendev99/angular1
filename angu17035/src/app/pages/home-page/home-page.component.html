@@ -54,7 +54,7 @@
 
 
                         <div  *ngFor ="let food of foods " class="col mb-5">
-                            <a routerLink="/food/{{food.id}}">
+                            <a routerLink="/food/{{food._id}}">
                             <div class="card h-100">
                                 <!-- Product image-->
                                 <img class="card-img-top" [src]="food.imageUrl" [alt]="food.name" />

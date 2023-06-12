@@ -68,11 +68,14 @@ export const getAll = async (req, res) => {
 
 export const get = async (req, res) => {
   try {
-    const food = await Food.findById(req.body.id);
+    console.log(req.params.id);
+    const food = await Food.findById({_id:req.params.id });
     return res.status(200).json({
-      food});
+      message:"thanh cong",
+      food
+    });
   } catch (error) {
-    return res.status(400).json({
+    return res.status(400).json({ 
       message: error.message
     })
   }
@@ -80,7 +83,7 @@ export const get = async (req, res) => {
 
 export const remove = async (req, res) => {
   try {
-    const food = await Food.findOneAndDelete({_id: req.body.id});
+    const food = await Food.findOneAndDelete({_id: req.params.id});
     return res.status(200).json({
       message: "xóa thành công",
       food});

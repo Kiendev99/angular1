@@ -4,11 +4,8 @@ export class Food{
     price!:number;
     realPrice!:number;
     des!:string;
-    tags!:string[];
-    favorite!: boolean;
-    stars!:number;
     imageUrl!: string;
-    origins!: string[];
     cookTime! :string;
+
 
 }

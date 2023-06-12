@@ -11,6 +11,8 @@ import { TrangchuAdminComponent } from './pages/admin/trangchu-admin/trangchu-ad
 import { AddProductComponent } from './pages/admin/add-product/add-product.component';
 import { UserHomeComponent } from './pages/admin/user-home/user-home.component';
 import { EditUserComponent } from './pages/admin/edit-user/edit-user.component';
+import { AddspComponent } from './pages/admin/addsp/addsp.component';
+import { EditfoodComponent } from './pages/admin/editfood/editfood.component';
 
 
 const routes: Routes = [
@@ -22,7 +24,9 @@ const routes: Routes = [
     {path: '',redirectTo: "home",pathMatch: 'full'},
     {path: 'home',component: TrangchuAdminComponent},
     {path: 'add',component: AddProductComponent},
+    {path:'addsp', component:AddspComponent},
     {path: 'user',component: UserHomeComponent,},
+    {path: 'add/:id',component: EditfoodComponent,},
     {path: 'user/:id',component: EditUserComponent,},
   ]},
   {path: 'cart',component: CartProductComponent,},

@@ -18,7 +18,9 @@ import { Observable } from 'rxjs';
 
 export class HomePageComponent implements OnInit {
   foods: any=[];
-  constructor(private foodService: FoodService, activatedRoute: ActivatedRoute) {
+  tag: any=[];
+
+  constructor(private foodService: FoodService,private activatedRoute: ActivatedRoute) {
     let foodsObservalbe:Observable<Food[]>;
     activatedRoute.params.subscribe((params) => {
       if (params.searchTerm)
@@ -38,8 +40,15 @@ export class HomePageComponent implements OnInit {
     this.foodService.getAll().subscribe((data:any)=>{
       this.foods = data.food.docs;
       console.log(data.food.docs);
-
+      this.activatedRoute.paramMap.subscribe(params=>{
+        this.tag = params.get('tags');
+        console.log(this.tag);
+      })
     })
   }
-
+  getProductTags(id:any){
+    this.foodService.getAll().subscribe((res)=>{
+     this.foods = res ;
+    })
+ }
 }

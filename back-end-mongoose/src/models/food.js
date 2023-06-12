@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import mongoosePaginate from 'mongoose-paginate-v2'
 
 const foodSchema = new mongoose.Schema({
+  
   name: {
     type: String
   },
@@ -17,21 +18,10 @@ const foodSchema = new mongoose.Schema({
   realPrice: {
     type: Number,
   },
-  tags:{
-    type: String,
-  },
-  origins:{
-    type: String,
-  },
   cookTime:{
     type: String,
   },
-  stars:{
-    type: String,
-  },
-  favorite: {
-    type: Boolean,
-  }
+  
 },{timestamps: true,versionKey: false})
 
 foodSchema.plugin(mongoosePaginate)

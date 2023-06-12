@@ -38,7 +38,7 @@ export class UserService {
     const url = `${this.API_URL}/users/${data.id}`;
     return this.http.put(url, data);
   }
-  
+
 
   logout() {
     localStorage.removeItem('user');

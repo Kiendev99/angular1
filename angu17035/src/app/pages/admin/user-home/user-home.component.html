@@ -1,7 +1,7 @@
 <section>
   <div id="main" class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
 
-    
+
 
       <div class="bg-gray-800 pt-3">
           <div class="rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 shadow text-2xl text-white">
@@ -19,9 +19,9 @@
               <th scope="col" class="md:w-screen">quyền</th>
             </tr>
           </thead>
-          <tbody >  
-          
-            <tr class="text-center" *ngFor="let userData of users,index as i"> 
+          <tbody >
+
+            <tr class="text-center" *ngFor="let userData of users,index as i">
               <th scope="row">{{i + 1}}</th>
               <td>
                 <p> {{ userData.name }}</p>
@@ -34,8 +34,8 @@
               <td>
                 <p> {{ userData.role }}</p>
               </td>
-              
-             
+
+
               <td>
                 <div class="flex gap-1 justify-center">
                   <button class="btn btn-primary" >

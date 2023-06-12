@@ -24,6 +24,8 @@ import { FormsModule } from '@angular/forms';
 
 import { UserHomeComponent } from './pages/admin/user-home/user-home.component';
 import { EditUserComponent } from './pages/admin/edit-user/edit-user.component';
+import { AddspComponent } from './pages/admin/addsp/addsp.component';
+import { EditfoodComponent } from './pages/admin/editfood/editfood.component';
 
 
 
@@ -47,6 +49,8 @@ import { EditUserComponent } from './pages/admin/edit-user/edit-user.component';
     TitleComponent,
     UserHomeComponent,
     EditUserComponent,
+    AddspComponent,
+    EditfoodComponent,
     
     
 
